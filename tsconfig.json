@@ -1,0 +1,40 @@
+{
+  // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
+  "include": ["src"],
+  "compilerOptions": {
+    /* Base Options: */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    "verbatimModuleSyntax": false,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+
+    /* If transpiling with TypeScript: */
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+
+    /* If NOT transpiling with TypeScript: */
+    // "moduleResolution": "Bundler",
+    // "module": "ESNext",
+    "noEmit": true,
+
+    /* If your code runs in the DOM: */
+    "lib": ["es2022", "dom", "dom.iterable"],
+
+    /* If your code doesn't run in the DOM: */
+    // "lib": ["es2022"],
+    /* If you're building for a library: */
+    "declaration": true,
+
+    /* If you're building for a library in a monorepo: */
+    // "composite": true,
+    // "sourceMap": true,
+    // "declarationMap": true
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "name": "aws-s3-uploaders",
+  "version": "0.0.1",
+  "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "test:cli": "node ./dist/cli.mjs -w -p 1234 -c awesome",
+    "lint": "tsc --noEmit",
+    "lint-es": "eslint --ext .ts,.tsx src --color",
+    "start": "esno src/index.ts",
+    "test": "vitest",
+    "verify-commit": "verify-commit-msg",
+    "prepare": "git-scm-hooks",
+    "changelog": "npx changeloggithub@latest --all true && git add CHANGELOG.md && git commit -m 'chore: update CHANGELOG.md'",
+    "release": "bumpp -r && npm run changelog && npm publish"
+  },
+  "author": "hunghg255",
+  "devDependencies": {
+    "@hunghg255/eslint-config-ts": "^0.0.6",
+    "@types/lodash": "^4.14.201",
+    "@types/mime-types": "^2.1.4",
+    "@types/node": "^18.17.15",
+    "@types/recursive-readdir": "^2.2.4",
+    "bumpp": "^9.2.0",
+    "esno": "^0.16.3",
+    "git-scm-hooks": "^0.0.7",
+    "prettier": "^3.0.3",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2",
+    "verify-commit-msg": "^0.0.10",
+    "vitest": "^0.34.4"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.0.0",
+    "kolorist": "^1.8.0",
+    "lodash": "^4.17.21",
+    "mime-types": "^2.1.35",
+    "recursive-readdir": "^2.2.3",
+    "unbuild": "^1.2.1"
+  },
+  "git-hooks": {
+    "pre-commit": "npm run lint",
+    "commit-msg": "npm run verify-commit"
+  },
+  "keywords": [],
+  "homepage": "https://github.com/hunghg255/unbuild-package",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hunghg255/unbuild-package"
+  },
+  "bugs": {
+    "url": "https://github.com/hunghg255/unbuild-package/issues"
+  }
+}
